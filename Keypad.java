@@ -8,22 +8,41 @@ public class Keypad {
 		// TODO Auto-generated method stub
 		Scanner scn = new Scanner(System.in);
 		String str = scn.next();
-		sol(str, "");
+		System.out.println(sol(str, ""));
 	}
 //no  dabaya h 3or 7
 //	3 pr h def
 //	7 pr h pqrs
-	public static void sol(String str, String ans) {
+//	public static void sol(String str, String ans) {
+//		if (str.length() == 0) {
+//			System.out.println(ans);
+//			return;
+//		}
+//		char ch = str.charAt(0);
+//		String alpha = get(ch);
+//		
+//		for (int i = 0; i < alpha.length(); i++) {
+//			sol(str.substring(1), ans + alpha.charAt(i));
+//		}
+//	}
+
+	public static ArrayList<String> sol(String str, String ans) {
 		if (str.length() == 0) {
-			System.out.println(ans);
-			return;
+			ArrayList<String> br = new ArrayList();
+			br.add(ans);
+			return br;
 		}
 		char ch = str.charAt(0);
 		String alpha = get(ch);
-		
+		ArrayList<String> mr = new ArrayList();
 		for (int i = 0; i < alpha.length(); i++) {
-			sol(str.substring(1), ans + alpha.charAt(i));
+			ArrayList<String> res = sol(str.substring(1), ans + alpha.charAt(i));
+			for (int j = 0; j < res.size(); j++) {
+				String s = res.get(j);
+				mr.add(s);
+			}
 		}
+		return mr;
 	}
 
 	public static String get(char ch) {
