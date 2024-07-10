@@ -6,7 +6,7 @@ public class PalindromicPartitioning {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-String str="sarthak";
+String str="nitin";
 sol(str,"");
 
 	}
@@ -23,8 +23,7 @@ sol(str,"");
 			if(isPalindrome(cur)==true)
 			{
 //				System.out.println(cur);
-				sol(rem,ans+cur+" ,");
-			
+				sol(rem,ans+cur+",");
 			}
 			
 		}
